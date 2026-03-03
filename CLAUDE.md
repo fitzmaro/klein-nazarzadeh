@@ -7,8 +7,8 @@ Single-page landing page for a Manhattan personal injury law firm. Two attorneys
 - **Repo**: https://github.com/fitzmaro/klein-nazarzadeh
 - **Firm Address**: 1675 Broadway, 14th Floor, New York, NY 10019
 - **Firm Name**: Klein & Nazarzadeh, PLLC
-- **Hosting**: Not yet set up
-- **Domain**: Not yet purchased
+- **Hosting**: Not yet set up (plan: GitHub Pages)
+- **Domain**: KNinjurylaw.com (purchased on GoDaddy, username: 129118019)
 
 ## Tech Stack
 - Single `index.html` file (all CSS/JS inline)
@@ -42,8 +42,8 @@ Single-page landing page for a Manhattan personal injury law firm. Two attorneys
 - [ ] Replace email `info@kleinnazarzadeh.com` with real email (contact section, footer)
 - [ ] Update attorney cards with first names and real bios
 - [ ] Wire up form submission to a backend (Formspree, Netlify Forms, or custom)
-- [ ] Purchase domain and set up hosting
-- [ ] Set up firm email addresses (they mentioned GoDaddy + Outlook)
+- [ ] Set up GitHub Pages hosting and point GoDaddy DNS (A records → GitHub IPs, CNAME www → fitzmaro.github.io, add CNAME file to repo)
+- [ ] Set up firm email — clients need to buy Microsoft 365 Business Basic ($6/user/mo) through GoDaddy, then create mailboxes (klein@, nazarzadeh@, info@). Note sent to clients explaining options.
 - [ ] Update structured data URL from `kleinnazarzadeh.com` to actual domain
 - [ ] Add real phone number to JSON-LD structured data
 - [ ] Add favicon
@@ -55,3 +55,11 @@ Single-page landing page for a Manhattan personal injury law firm. Two attorneys
 - Color scheme: black, white, silver (we went with black, warm cream, brass gold — more premium)
 - No verdicts taken — they said not to highlight this
 - Goals: clean website, hosting, firm email setup with Outlook
+
+## Email Situation
+- Clients want @kninjurylaw.com emails in Outlook
+- No free option exists for custom domain email (Gmail or Outlook)
+- Recommended: Microsoft 365 Business Basic via GoDaddy ($6/user/mo, DNS auto-configured)
+- Alternative: Google Workspace ($7/user/mo) but they prefer Outlook
+- Note sent to clients in `email-note-to-client.md` explaining options, awaiting their decision
+- Once they purchase M365 through GoDaddy, create: klein@, nazarzadeh@, info@kninjurylaw.com
