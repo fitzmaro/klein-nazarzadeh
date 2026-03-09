@@ -20,7 +20,7 @@
     "name": "Klein & Nazarzadeh, PLLC",
     "description": "Manhattan personal injury attorneys with decades of combined experience. Over $50 million recovered for injured New Yorkers.",
     "url": "https://www.kninjurylaw.com",
-    "telephone": "+1-212-000-0000",
+    "telephone": "+1-212-540-3311",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1675 Broadway, 14th Floor",
@@ -620,45 +620,33 @@
 
     .about-cols p + p { margin-top: 20px; }
 
-    /* Attorney cards */
-    .attorneys {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .att-card {
+    /* Attorney profiles */
+    .att-profile {
       background: var(--white);
-      padding: 40px 36px;
+      padding: 48px;
       border: 1px solid var(--cream-dark);
+      margin-bottom: 20px;
       position: relative;
       overflow: hidden;
-      transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .att-card::before {
+    .att-profile::before {
       content: '';
       position: absolute;
-      bottom: 0;
+      top: 0;
       left: 0;
       right: 0;
       height: 2px;
       background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s var(--ease-in-out);
     }
 
-    .att-card:hover {
-      border-color: transparent;
-      box-shadow: 0 8px 40px rgba(58, 54, 50, 0.08);
+    .att-profile-header {
+      margin-bottom: 32px;
     }
 
-    .att-card:hover::before { transform: scaleX(1); }
-
-    .att-card h3 {
+    .att-profile-header h3 {
       font-family: var(--font-display);
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 400;
       color: var(--text);
       margin-bottom: 4px;
@@ -670,17 +658,90 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--gold);
+    }
+
+    .att-profile-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 48px;
+    }
+
+    .att-bio p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--text-light);
       margin-bottom: 16px;
     }
 
-    .att-card p {
-      font-size: 14px;
-      line-height: 1.75;
+    .att-bio p:last-child { margin-bottom: 0; }
+
+    .att-creds h4 {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .att-creds h4 + h4,
+    .att-creds ul + h4 {
+      margin-top: 24px;
+    }
+
+    .att-creds ul {
+      list-style: none;
+      font-size: 13px;
+      line-height: 1.9;
       color: var(--text-light);
     }
 
+    .att-sl-badge { margin-top: 24px; }
+
+    /* Of Counsel */
+    .counsel-section {
+      margin-top: 20px;
+    }
+
+    .counsel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .counsel-card {
+      background: var(--white);
+      padding: 28px 32px;
+      border: 1px solid var(--cream-dark);
+    }
+
+    .counsel-card h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .counsel-role {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .counsel-card {
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .counsel-card:hover {
+      border-color: transparent;
+      box-shadow: 0 8px 40px rgba(58, 54, 50, 0.08);
+    }
+
     /* =============================================
-       PRACTICE AREAS — ACCORDION LIST
+       PRACTICE AREAS — GRID
        ============================================= */
     #practice {
       background: var(--black);
@@ -689,88 +750,26 @@
 
     #practice h2 { color: var(--white); margin-bottom: 56px; }
 
-    .pa-list {
-      border-top: 1px solid rgba(254, 253, 251, 0.06);
-    }
-
-    .pa-item {
-      border-bottom: 1px solid rgba(254, 253, 251, 0.06);
-    }
-
-    .pa-trigger {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      padding: 28px 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      transition: padding 0.4s ease;
-    }
-
-    .pa-trigger:hover { padding-left: 8px; }
-
-    .pa-num {
-      font-family: var(--font-display);
-      font-size: 14px;
-      color: var(--gold);
-      opacity: 0.5;
-      min-width: 28px;
-      transition: opacity 0.3s ease;
-    }
-
-    .pa-trigger:hover .pa-num { opacity: 1; }
-
-    .pa-name {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 400;
-      color: rgba(254, 253, 251, 0.7);
-      flex: 1;
-      transition: color 0.3s ease;
-    }
-
-    .pa-trigger:hover .pa-name,
-    .pa-item.active .pa-trigger .pa-name {
-      color: var(--white);
-    }
-
-    .pa-arrow {
-      width: 20px;
-      height: 20px;
-      color: var(--gold);
-      opacity: 0.4;
-      transition: transform 0.4s var(--ease-out-expo), opacity 0.3s ease;
-    }
-
-    .pa-trigger:hover .pa-arrow { opacity: 1; }
-    .pa-item.active .pa-arrow { transform: rotate(45deg); opacity: 1; }
-
-    .pa-body {
+    .pa-grid {
       display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.5s var(--ease-out-expo);
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(254, 253, 251, 0.06);
+      border-left: 1px solid rgba(254, 253, 251, 0.06);
     }
 
-    .pa-item.active .pa-body {
-      grid-template-rows: 1fr;
+    .pa-cell {
+      padding: 24px 22px;
+      border-bottom: 1px solid rgba(254, 253, 251, 0.06);
+      border-right: 1px solid rgba(254, 253, 251, 0.06);
+      font-family: var(--font-display);
+      font-size: 17px;
+      color: rgba(254, 253, 251, 0.5);
+      transition: color 0.3s ease, background 0.3s ease;
     }
 
-    .pa-body-inner {
-      overflow: hidden;
-    }
-
-    .pa-desc {
-      padding: 0 0 28px 56px;
-      max-width: 540px;
-    }
-
-    .pa-desc p {
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--text-muted);
+    .pa-cell:hover {
+      color: var(--white);
+      background: rgba(184, 149, 106, 0.05);
     }
 
     /* =============================================
@@ -918,123 +917,75 @@
 
     .c-detail-text a:hover { color: var(--gold); }
 
-    /* Form */
-    .contact-form {
+    /* Contact CTA card */
+    .contact-cta-card {
       background: var(--cream);
-      padding: 52px 44px;
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
 
-    .contact-form h3 {
+    .contact-cta-card h3 {
       font-family: var(--font-display);
       font-size: 28px;
       font-weight: 400;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 12px;
     }
 
-    .contact-form > p {
-      font-size: 13px;
-      color: var(--text-muted);
+    .contact-cta-card > p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-light);
+      max-width: 360px;
       margin-bottom: 36px;
     }
 
-    .fg { margin-bottom: 28px; }
-
-    .fg label {
-      display: block;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text);
-      margin-bottom: 10px;
-    }
-
-    .fg input,
-    .fg textarea,
-    .fg select {
-      width: 100%;
-      padding: 12px 0;
-      font-family: var(--font-body);
-      font-size: 15px;
-      color: var(--text);
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid var(--cream-dark);
-      outline: none;
-      transition: border-color 0.3s ease;
-      border-radius: 0;
-      -webkit-appearance: none;
-    }
-
-    .fg input:focus,
-    .fg textarea:focus,
-    .fg select:focus {
-      border-bottom-color: var(--gold);
-    }
-
-    .fg input::placeholder,
-    .fg textarea::placeholder {
-      color: var(--text-muted);
-    }
-
-    .fg textarea {
-      resize: vertical;
-      min-height: 72px;
-    }
-
-    .fg select {
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-
-    .fg select:valid { color: var(--text); }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-    }
-
-    .form-btn {
-      display: flex;
+    .contact-mailto {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 12px;
-      width: 100%;
-      padding: 18px 40px;
+      padding: 18px 44px;
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--black);
       background: var(--gold);
-      border: none;
-      cursor: pointer;
       transition: background 0.3s ease, transform 0.25s ease, box-shadow 0.4s ease;
-      margin-top: 4px;
     }
 
-    .form-btn:hover {
+    .contact-mailto:hover {
       background: var(--gold-light);
       transform: translateY(-2px);
       box-shadow: 0 12px 40px rgba(184, 149, 106, 0.2);
     }
 
-    .form-btn svg {
-      width: 13px;
-      height: 13px;
+    .contact-mailto svg {
+      width: 14px;
+      height: 14px;
       transition: transform 0.3s ease;
     }
 
-    .form-btn:hover svg { transform: translateX(4px); }
+    .contact-mailto:hover svg { transform: translateX(4px); }
 
-    .form-fine {
-      font-size: 11px;
+    .contact-or {
+      font-size: 12px;
       color: var(--text-muted);
-      margin-top: 16px;
-      line-height: 1.7;
+      margin: 24px 0;
+      letter-spacing: 0.06em;
     }
+
+    .contact-call {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--text);
+      transition: color 0.3s ease;
+    }
+
+    .contact-call:hover { color: var(--gold); }
 
     /* =============================================
        FOOTER
@@ -1102,10 +1053,17 @@
 
     .foot-disc {
       max-width: var(--max-w);
-      margin: 16px auto 0;
+      margin: 12px auto 0;
       font-size: 10px;
       color: rgba(254, 253, 251, 0.1);
       line-height: 1.6;
+    }
+
+    .foot-disc:first-of-type { margin-top: 16px; }
+
+    .foot-disc strong {
+      color: rgba(254, 253, 251, 0.18);
+      font-weight: 600;
     }
 
     /* =============================================
@@ -1141,6 +1099,9 @@
 
       .about-cols { grid-template-columns: 1fr; gap: 0; }
       .about-cols > div:first-child p { margin-bottom: 20px; }
+      .att-profile-grid { grid-template-columns: 1fr; gap: 32px; }
+      .counsel-grid { grid-template-columns: 1fr; }
+      .pa-grid { grid-template-columns: repeat(3, 1fr); }
       .why-grid { grid-template-columns: 1fr; }
       .why-item { margin-left: 0; }
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
@@ -1168,19 +1129,20 @@
       .scroll-hint { display: none; }
 
       .about-pull { font-size: clamp(20px, 4.5vw, 28px); padding-left: 20px; }
-      .attorneys { grid-template-columns: 1fr; }
-      .pa-desc { padding-left: 0; }
-      .form-row { grid-template-columns: 1fr; }
+      .att-profile { padding: 32px 24px; }
+      .pa-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-cta-card { padding: 40px 24px; }
       .foot-top { flex-direction: column; }
       .foot-right { text-align: left; }
       .foot-bar { flex-direction: column; }
     }
 
     @media (max-width: 480px) {
-      .contact-form { padding: 36px 24px; }
+      .contact-mailto { padding: 16px 32px; font-size: 10px; }
       .hero-h1 { font-size: clamp(40px, 12vw, 56px); }
       .why-item { padding: 32px 24px; }
-      .att-card { padding: 32px 24px; }
+      .pa-grid { grid-template-columns: 1fr 1fr; }
+      .pa-cell { font-size: 15px; padding: 20px 16px; }
     }
   </style>
 </head>
@@ -1201,7 +1163,7 @@
           <a href="#contact">Contact</a>
         </div>
         <!-- TODO: Replace with real phone number -->
-        <a href="tel:+12120000000" class="nav-phone">(212) 000-0000</a>
+        <a href="tel:+12125403311" class="nav-phone">(212) 540-3311</a>
         <a href="#contact" class="nav-cta">Free Consultation</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
@@ -1216,7 +1178,7 @@
     <a href="#practice" onclick="closeMob()">Practice Areas</a>
     <a href="#why" onclick="closeMob()">Why Us</a>
     <a href="#contact" onclick="closeMob()">Contact</a>
-    <a href="tel:+12120000000" onclick="closeMob()">(212) 000-0000</a>
+    <a href="tel:+12125403311" onclick="closeMob()">(212) 540-3311</a>
     <a href="#contact" class="mob-cta" onclick="closeMob()">Free Consultation</a>
   </div>
 
@@ -1299,16 +1261,77 @@
         </div>
       </div>
 
-      <div class="attorneys">
-        <div class="att-card r d1">
-          <h3>Kevin Klein</h3>
+      <div class="att-profile r d1">
+        <div class="att-profile-header">
+          <h3>Kevin Klein, Esq.</h3>
           <div class="att-role">Founding Partner</div>
-          <p>Decades of experience representing seriously injured New Yorkers in complex personal injury matters. Licensed to practice in New York State.</p>
         </div>
-        <div class="att-card r d2">
-          <h3>Jordan Nazarzadeh</h3>
+        <div class="att-profile-grid">
+          <div class="att-bio">
+            <p>Kevin Klein is a New York personal injury attorney representing individuals and families who have suffered serious injuries due to negligence. As a founding partner of Klein & Nazarzadeh, PLLC, he provides sophisticated advocacy with the accessibility and attentiveness of a boutique Manhattan practice.</p>
+            <p>His practice focuses on motor vehicle accidents, premises liability, construction accidents, and other significant injury matters. Known for meticulous preparation and strategic case positioning, Kevin develops each case with precision to maximize recovery and protect his clients' long-term interests.</p>
+            <p>Clients work directly with Kevin and receive thoughtful, individualized guidance at every stage of their matter. He is committed to delivering results with integrity, professionalism, and discretion.</p>
+          </div>
+          <div class="att-creds">
+            <h4>Education</h4>
+            <ul>
+              <li>University of Maryland</li>
+              <li>Hofstra University School of Law</li>
+            </ul>
+            <h4>Admissions</h4>
+            <ul>
+              <li>State of New York</li>
+              <li>U.S. District Court, Southern District of New York</li>
+              <li>U.S. District Court, Eastern District of New York</li>
+            </ul>
+            <h4>Recognition</h4>
+            <ul>
+              <li>Super Lawyers, 2018&ndash;2025</li>
+            </ul>
+            <!-- Super Lawyers Badge -->
+            <div class="att-sl-badge">
+              <div data-slbadge="v2-rsbadge-neutral" style="width:180px;height:150px;border-radius:12px;font-family:arial,sans-serif;color:gray;text-align:center"><script async type="text/javascript" src="https://www.superlawyers.com/static/sl-badge/v2/load.min.js"></script><a class="slbadge_profileurl" title="View the profile of New York Metro Personal Injury - General Attorney Kevin Klein" href="https://profiles.superlawyers.com/new-york/new-york/lawyer/kevin-klein/7109bba0-7063-428e-ac82-2265a81c67ae.html?npcmp=rsb:badge:sl_badge:7109bba0-7063-428e-ac82-2265a81c67ae:main&utm_source=7109bba0-7063-428e-ac82-2265a81c67ae&utm_campaign=v2-rsbadge-neutral&utm_content=profile">Kevin Klein</a><div style="margin-top:6px">Rated by Super Lawyers<br/><br/><br/>loading ...</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="att-profile r d2">
+        <div class="att-profile-header">
+          <h3>Jordan Jacob Nazarzadeh, Esq.</h3>
           <div class="att-role">Founding Partner</div>
-          <p>Decades of experience advocating for accident victims across New York. Licensed to practice in New York State.</p>
+        </div>
+        <div class="att-profile-grid">
+          <div class="att-bio">
+            <p>Jordan Jacob Nazarzadeh focuses his practice on representing individuals injured as a result of negligence. He is dedicated to helping clients navigate the legal system and recover the compensation they deserve after serious accidents.</p>
+            <p>Prior to founding Klein & Nazarzadeh, PLLC, Mr. Nazarzadeh spent nearly a decade practicing personal injury law in New York, representing victims of motor vehicle accidents, premises liability accidents, and other negligence-related claims. Over the course of his career, he has helped secure significant settlements for injured clients and has developed extensive experience handling cases from initial investigation through settlement negotiations and litigation.</p>
+            <p>Mr. Nazarzadeh takes pride in providing personalized attention to every client and understands the financial, physical, and emotional toll that serious injuries can cause. His approach combines aggressive advocacy with strategic case management to maximize recoveries while guiding clients through every stage of the legal process.</p>
+          </div>
+          <div class="att-creds">
+            <h4>Education</h4>
+            <ul>
+              <li>University of Maryland</li>
+              <li>New York Law School</li>
+            </ul>
+            <h4>Admissions</h4>
+            <ul>
+              <li>State of New York</li>
+              <li>State of New Jersey</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="counsel-section">
+        <div class="counsel-grid">
+          <div class="counsel-card r d1">
+            <h3>Alan Chester Salzman, Esq.</h3>
+            <div class="counsel-role">Of Counsel</div>
+          </div>
+          <div class="counsel-card r d2">
+            <h3>Harvey Alan Winer, Esq.</h3>
+            <div class="counsel-role">Of Counsel</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1322,96 +1345,27 @@
         <h2>We Handle Serious<br>Injury Cases</h2>
       </div>
 
-      <div class="pa-list">
-        <div class="pa-item r d1" data-pa>
-          <button class="pa-trigger" aria-expanded="false">
-            <span class="pa-num">01</span>
-            <span class="pa-name">Motor Vehicle Accidents</span>
-            <svg class="pa-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="pa-body">
-            <div class="pa-body-inner">
-              <div class="pa-desc">
-                <p>Car crashes, truck collisions, rideshare incidents, motorcycle accidents, and pedestrian injuries throughout New York City and the surrounding boroughs.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pa-item r d2" data-pa>
-          <button class="pa-trigger" aria-expanded="false">
-            <span class="pa-num">02</span>
-            <span class="pa-name">Construction Accidents</span>
-            <svg class="pa-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="pa-body">
-            <div class="pa-body-inner">
-              <div class="pa-desc">
-                <p>Scaffolding falls, equipment failures, electrocutions, and violations of New York Labor Law Sections 200, 240, and 241 on construction sites.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pa-item r d3" data-pa>
-          <button class="pa-trigger" aria-expanded="false">
-            <span class="pa-num">03</span>
-            <span class="pa-name">Premises Liability</span>
-            <svg class="pa-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="pa-body">
-            <div class="pa-body-inner">
-              <div class="pa-desc">
-                <p>Slip and fall injuries, trip hazards, inadequate security, elevator malfunctions, and unsafe conditions in buildings, stores, and public spaces.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pa-item r d4" data-pa>
-          <button class="pa-trigger" aria-expanded="false">
-            <span class="pa-num">04</span>
-            <span class="pa-name">Medical Malpractice</span>
-            <svg class="pa-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="pa-body">
-            <div class="pa-body-inner">
-              <div class="pa-desc">
-                <p>Surgical errors, misdiagnosis, delayed treatment, birth injuries, and medication mistakes by hospitals and healthcare providers.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pa-item r d5" data-pa>
-          <button class="pa-trigger" aria-expanded="false">
-            <span class="pa-num">05</span>
-            <span class="pa-name">Wrongful Death</span>
-            <svg class="pa-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="pa-body">
-            <div class="pa-body-inner">
-              <div class="pa-desc">
-                <p>Holding negligent parties accountable when families lose a loved one. We fight to secure the compensation surviving family members are owed.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="pa-item r d6" data-pa>
-          <button class="pa-trigger" aria-expanded="false">
-            <span class="pa-num">06</span>
-            <span class="pa-name">Workplace Injuries</span>
-            <svg class="pa-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-          <div class="pa-body">
-            <div class="pa-body-inner">
-              <div class="pa-desc">
-                <p>On-the-job accidents and injuries that warrant claims beyond standard workers' compensation, including third-party liability actions.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="pa-grid r d1">
+        <div class="pa-cell">Car Accidents</div>
+        <div class="pa-cell">Motorcycle Accidents</div>
+        <div class="pa-cell">Truck Accidents</div>
+        <div class="pa-cell">Bus Accidents</div>
+        <div class="pa-cell">Pedestrian Accidents</div>
+        <div class="pa-cell">Bicycle Accidents</div>
+        <div class="pa-cell">Construction Accidents</div>
+        <div class="pa-cell">Workplace Accidents</div>
+        <div class="pa-cell">Premises Liability</div>
+        <div class="pa-cell">Slip & Fall</div>
+        <div class="pa-cell">Medical Malpractice</div>
+        <div class="pa-cell">Product Liability</div>
+        <div class="pa-cell">Labor Law</div>
+        <div class="pa-cell">Negligent Security</div>
+        <div class="pa-cell">Brain Injuries</div>
+        <div class="pa-cell">Child Injuries</div>
+        <div class="pa-cell">Assault Injuries</div>
+        <div class="pa-cell">Dog Bite Injuries</div>
+        <div class="pa-cell">Defective Drugs & Medical Devices</div>
+        <div class="pa-cell">Immigration Law</div>
       </div>
     </div>
   </section>
@@ -1473,60 +1427,28 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.876.37 1.74.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c1.07.33 1.93.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <div class="c-detail-text">
                 <strong>Phone</strong>
-                <!-- TODO: Replace with real phone number -->
-                <a href="tel:+12120000000">(212) 000-0000</a>
+                <a href="tel:+12125403311">(212) 540-3311</a>
               </div>
             </div>
             <div class="c-detail">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               <div class="c-detail-text">
                 <strong>Email</strong>
-                <!-- TODO: Replace with real email -->
                 <a href="mailto:info@kninjurylaw.com">info@kninjurylaw.com</a>
               </div>
             </div>
           </div>
         </div>
-        <form class="contact-form r d2" id="consultForm" onsubmit="handleSubmit(event)">
-          <h3>Tell Us What Happened</h3>
-          <p>All consultations are confidential.</p>
-          <div class="form-row">
-            <div class="fg">
-              <label for="name">Full Name *</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
-            </div>
-            <div class="fg">
-              <label for="phone">Phone *</label>
-              <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000" required>
-            </div>
-          </div>
-          <div class="fg">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com">
-          </div>
-          <div class="fg">
-            <label for="injury-type">Type of Injury</label>
-            <select id="injury-type" name="injury-type" required>
-              <option value="" disabled selected>Select one...</option>
-              <option value="motor-vehicle">Motor Vehicle Accident</option>
-              <option value="construction">Construction Accident</option>
-              <option value="premises">Premises Liability / Slip & Fall</option>
-              <option value="medical">Medical Malpractice</option>
-              <option value="wrongful-death">Wrongful Death</option>
-              <option value="workplace">Workplace Injury</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label for="message">Briefly Describe Your Situation</label>
-            <textarea id="message" name="message" placeholder="What happened? When did the injury occur?"></textarea>
-          </div>
-          <button type="submit" class="form-btn">
-            Request Free Consultation
+        <div class="contact-cta-card r d2">
+          <h3>Ready to Discuss Your Case?</h3>
+          <p>Send us a brief description of your situation and we'll follow up promptly. All consultations are free and confidential.</p>
+          <a class="contact-mailto" href="mailto:info@kninjurylaw.com?subject=New%20Consultation%20Request%20%E2%80%94%20KNInjuryLaw.com&body=Thank%20you%20for%20reaching%20out%20to%20Klein%20%26%20Nazarzadeh%2C%20PLLC.%20Please%20provide%20the%20following%20information%20so%20we%20can%20evaluate%20your%20case%3A%0A%0AName%3A%20%0APhone%20Number%3A%20%0AType%20of%20Injury%3A%20%0ADate%20of%20Incident%3A%20%0A%0APlease%20briefly%20describe%20what%20happened%3A%0A%0A">
+            Contact Us
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          <p class="form-fine">By submitting this form, you agree to be contacted regarding your inquiry. This does not establish an attorney-client relationship.</p>
-        </form>
+          </a>
+          <div class="contact-or">or call directly</div>
+          <a href="tel:+12125403311" class="contact-call">(212) 540-3311</a>
+        </div>
       </div>
     </div>
   </section>
@@ -1539,15 +1461,16 @@
         <p class="foot-addr">1675 Broadway, 14th Floor<br>New York, NY 10019</p>
       </div>
       <div class="foot-right">
-        <a href="tel:+12120000000">(212) 000-0000</a>
+        <a href="tel:+12125403311">(212) 540-3311</a>
         <a href="mailto:info@kninjurylaw.com">info@kninjurylaw.com</a>
       </div>
     </div>
     <div class="foot-bar">
       <p>&copy; 2025 Klein & Nazarzadeh, PLLC. All rights reserved.</p>
-      <p>Attorney Advertising. Prior results do not guarantee a similar outcome.</p>
     </div>
-    <p class="foot-disc">The information on this website is for general information purposes only. Nothing on this site should be taken as legal advice for any individual case or situation. This information is not intended to create, and receipt or viewing does not constitute, an attorney-client relationship.</p>
+    <p class="foot-disc"><strong>Attorney Advertising.</strong> This website is designed for general information only. The information presented at this site should not be construed to be formal legal advice nor the formation of a lawyer/client relationship.</p>
+    <p class="foot-disc"><strong>Results Disclaimer.</strong> Prior results do not guarantee a similar outcome. The specific facts and circumstances of your case will determine the results.</p>
+    <p class="foot-disc"><strong>No Attorney-Client Relationship.</strong> Use of this website does not create an attorney-client relationship. Please do not send any confidential information until such time as an attorney-client relationship has been established.</p>
   </footer>
 
   <!-- ====== SCRIPTS ====== -->
@@ -1593,26 +1516,6 @@
 
     document.querySelectorAll('.r').forEach(el => ro.observe(el));
 
-    // ---- Practice area accordion ----
-    document.querySelectorAll('[data-pa]').forEach(item => {
-      const trigger = item.querySelector('.pa-trigger');
-      trigger.addEventListener('click', () => {
-        const wasActive = item.classList.contains('active');
-
-        // Close all
-        document.querySelectorAll('[data-pa]').forEach(i => {
-          i.classList.remove('active');
-          i.querySelector('.pa-trigger').setAttribute('aria-expanded', 'false');
-        });
-
-        // Open clicked (if it wasn't already open)
-        if (!wasActive) {
-          item.classList.add('active');
-          trigger.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
     // ---- Smooth scroll ----
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', function(e) {
@@ -1625,31 +1528,6 @@
       });
     });
 
-    // ---- Form submission (placeholder) ----
-    function handleSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = form.querySelector('.form-btn');
-      const orig = btn.innerHTML;
-
-      btn.innerHTML = 'Sending...';
-      btn.disabled = true;
-
-      // TODO: Wire up to actual backend (Formspree, Netlify Forms, etc.)
-      setTimeout(() => {
-        btn.innerHTML = 'Submitted &mdash; We\'ll Be in Touch &nbsp;&#10003;';
-        btn.style.background = '#2A7D4F';
-        btn.style.color = '#fff';
-        form.reset();
-
-        setTimeout(() => {
-          btn.innerHTML = orig;
-          btn.style.background = '';
-          btn.style.color = '';
-          btn.disabled = false;
-        }, 4000);
-      }, 800);
-    }
   </script>
 
 </body>
